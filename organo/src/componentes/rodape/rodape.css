@@ -1,0 +1,18 @@
+.rodape{
+    display: flex;
+    padding: 32px;
+    background-color: #6278F7;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+.redes img{
+    margin: 8px;
+}
+
+.rodape h5{
+    font-size: 16px;
+    color: #fff;
+
+}
