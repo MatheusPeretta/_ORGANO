@@ -49,7 +49,7 @@ function App() {
       nome:'Inovação e Gestão',
       cor:'#FF8A29',
       
-    },]
+    }]
   )
 
   // const inicial=[
@@ -64,13 +64,14 @@ function App() {
 
 
   const [colaboradores, setColaboradores] = useState([])
+
   const aoNovoColaboradorAdicionado =(colaborador)=>{
       console.log(colaborador)
       setColaboradores([...colaboradores,colaborador])}
 
-  function deletarColab(identificador){
+  function deletarColab(idColab){
     console.log(colaboradores.map(colaborador=>colaborador.identificador))
-    setColaboradores(colaboradores.filter(colaborador=>colaborador.identificador !==identificador ))
+    setColaboradores(colaboradores.filter(colaborador=>colaborador.id !==idColab ))
   }    
 
   function mudaCorTime(cor,id){
@@ -83,14 +84,20 @@ function App() {
   }
 
 
+  function cadastrarTime(novoTime) {
+    setTimes([...times,{...novoTime, id:uuidv4()}])
+    console.log('Retorno da função', novoTime)
+  }
+
   return (
     <div className="App">
       <Banner />
       <Formulario 
+      cadastrarTime={cadastrarTime}
       times={times.map(time => time.nome)} 
       aoColaboradorCadastrado={colaborador=>aoNovoColaboradorAdicionado(colaborador)} />
       {times.map(time=> <Time 
-                            idColab={colaboradores.map(colaborador=>colaborador.identificador)}
+                            idColab={colaboradores.map(colaborador=>colaborador.id)}
                             key={time.nome} 
                             nome={time.nome} 
                             cor={time.cor}

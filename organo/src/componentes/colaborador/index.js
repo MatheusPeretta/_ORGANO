@@ -1,11 +1,11 @@
 import './colaborador.css'
 import {AiFillCloseCircle} from 'react-icons/ai';
-import { v4 as uuidv4 } from 'uuid';
+
 
 const Colaborador=(props)=>{
 
     return(
-        <div className='colaborador' identficador={uuidv4()}>
+        <div className='colaborador' id={props.id}>
             <AiFillCloseCircle
                 size={25} 
                 className='deletar' 
@@ -17,6 +17,9 @@ const Colaborador=(props)=>{
             <div className='rodape'>
                 <h4>{props.nome}</h4>
                 <h5>{props.cargo}</h5>
+                <div className='favoritar'>
+                    {}
+                </div>
 
             </div>
         </div>
